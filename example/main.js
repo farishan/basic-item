@@ -1,3 +1,13 @@
+console.log('hello from main.js')
+
+const $root = document.createElement('div')
+
+const player = new Player({
+  name: 'faris'
+})
+
+const items = []
+
 for (let index = 0; index < 10; index++) {
   const item = new Item({
     name: `item${index}`,
@@ -7,5 +17,12 @@ for (let index = 0; index < 10; index++) {
     }
   })
 
-  document.write(JSON.stringify(item))
+  items.push(item)
+
+  // $root.innerHTML += (JSON.stringify(item))
 }
+
+player.items = items
+$root.innerHTML += `<pre><code>${JSON.stringify(player, '', 2)}</code></pre>`
+
+document.body.appendChild($root)
